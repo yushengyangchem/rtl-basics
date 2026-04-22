@@ -1,0 +1,8 @@
+build/
+waves/
+*.vcd
+*.fst
+*.out
+
+.direnv
+.codex
