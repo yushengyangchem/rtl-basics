@@ -11,7 +11,7 @@ This repository is for learning how to:
 - build confidence with simulation and testbenches
 - understand the difference between software flow and hardware concurrency
 - model state machines and timing behavior
-- prepare for later CPU / accelerator RTL work
+- prepare for CPU / accelerator RTL work
 
 ## Project Structure
 
