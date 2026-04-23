@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
 module full_adder_tb;
-  reg a;
-  reg b;
-  reg cin;
-  wire sum;
-  wire cout;
+  logic a;
+  logic b;
+  logic cin;
+  logic sum;
+  logic cout;
   integer i;
-  reg [1:0] expected;
+  logic [1:0] expected;
 
   full_adder dut (
       .a(a),

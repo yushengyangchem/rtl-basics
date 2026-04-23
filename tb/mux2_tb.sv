@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 module mux2_tb;
-  reg  sel;
-  reg  d0;
-  reg  d1;
-  wire y;
+  logic sel;
+  logic d0;
+  logic d1;
+  logic y;
 
   mux2 dut (
       .sel(sel),

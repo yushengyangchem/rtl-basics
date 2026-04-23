@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 
 module traffic_light_fsm_tb;
-  reg  clk;
-  reg  rst;
-  wire main_red;
-  wire main_yellow;
-  wire main_green;
-  wire side_red;
-  wire side_yellow;
-  wire side_green;
+  logic clk;
+  logic rst;
+  logic main_red;
+  logic main_yellow;
+  logic main_green;
+  logic side_red;
+  logic side_yellow;
+  logic side_green;
 
   traffic_light_fsm dut (
       .clk(clk),

@@ -1,22 +1,22 @@
 `timescale 1ns / 1ps
 
 module traffic_light_fsm (
-    input  wire clk,
-    input  wire rst,
-    output reg  main_red,
-    output reg  main_yellow,
-    output reg  main_green,
-    output reg  side_red,
-    output reg  side_yellow,
-    output reg  side_green
+    input  logic clk,
+    input  logic rst,
+    output logic main_red,
+    output logic main_yellow,
+    output logic main_green,
+    output logic side_red,
+    output logic side_yellow,
+    output logic side_green
 );
   localparam [1:0] MAIN_GO = 2'd0;
   localparam [1:0] MAIN_WAIT = 2'd1;
   localparam [1:0] SIDE_GO = 2'd2;
   localparam [1:0] SIDE_WAIT = 2'd3;
 
-  reg [1:0] state;
-  reg [1:0] timer;
+  logic [1:0] state;
+  logic [1:0] timer;
 
   always @(posedge clk) begin
     if (rst) begin

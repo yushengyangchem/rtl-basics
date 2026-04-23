@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 module counter8_tb;
-  reg clk;
-  reg rst;
-  reg en;
-  wire [7:0] count;
+  logic clk;
+  logic rst;
+  logic en;
+  logic [7:0] count;
 
   counter8 dut (
       .clk(clk),

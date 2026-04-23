@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 module dff_tb;
-  reg  clk;
-  reg  rst;
-  reg  d;
-  wire q;
+  logic clk;
+  logic rst;
+  logic d;
+  logic q;
 
   dff dut (
       .clk(clk),

@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 module counter8 (
-    input  wire       clk,
-    input  wire       rst,
-    input  wire       en,
-    output reg  [7:0] count
+    input  logic       clk,
+    input  logic       rst,
+    input  logic       en,
+    output logic [7:0] count
 );
   always @(posedge clk) begin
     if (rst) begin

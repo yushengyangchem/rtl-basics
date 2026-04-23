@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 module half_adder_tb;
-  reg  a;
-  reg  b;
-  wire sum;
-  wire carry;
+  logic a;
+  logic b;
+  logic sum;
+  logic carry;
 
   half_adder dut (
       .a(a),

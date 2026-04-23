@@ -1,10 +1,10 @@
 `timescale 1ns / 1ps
 
 module dff (
-    input  wire clk,
-    input  wire rst,
-    input  wire d,
-    output reg  q
+    input  logic clk,
+    input  logic rst,
+    input  logic d,
+    output logic q
 );
   always @(posedge clk) begin
     if (rst) begin
