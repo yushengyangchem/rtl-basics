@@ -7,10 +7,10 @@ module dff_tb;
   logic q;
 
   dff dut (
-      .clk(clk),
-      .rst(rst),
-      .d  (d),
-      .q  (q)
+      .clk,
+      .rst,
+      .d,
+      .q
   );
 
   always #5 clk = ~clk;

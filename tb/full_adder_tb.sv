@@ -10,11 +10,11 @@ module full_adder_tb;
   logic [1:0] expected;
 
   full_adder dut (
-      .a(a),
-      .b(b),
-      .cin(cin),
-      .sum(sum),
-      .cout(cout)
+      .a,
+      .b,
+      .cin,
+      .sum,
+      .cout
   );
 
   initial begin

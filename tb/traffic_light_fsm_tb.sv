@@ -11,14 +11,14 @@ module traffic_light_fsm_tb;
   logic side_green;
 
   traffic_light_fsm dut (
-      .clk(clk),
-      .rst(rst),
-      .main_red(main_red),
-      .main_yellow(main_yellow),
-      .main_green(main_green),
-      .side_red(side_red),
-      .side_yellow(side_yellow),
-      .side_green(side_green)
+      .clk,
+      .rst,
+      .main_red,
+      .main_yellow,
+      .main_green,
+      .side_red,
+      .side_yellow,
+      .side_green
   );
 
   always #5 clk = ~clk;

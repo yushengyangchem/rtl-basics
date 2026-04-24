@@ -7,10 +7,10 @@ module half_adder_tb;
   logic carry;
 
   half_adder dut (
-      .a(a),
-      .b(b),
-      .sum(sum),
-      .carry(carry)
+      .a,
+      .b,
+      .sum,
+      .carry
   );
 
   task check;

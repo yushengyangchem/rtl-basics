@@ -7,10 +7,10 @@ module mux2_tb;
   logic y;
 
   mux2 dut (
-      .sel(sel),
-      .d0 (d0),
-      .d1 (d1),
-      .y  (y)
+      .sel,
+      .d0,
+      .d1,
+      .y
   );
 
   task check;

@@ -7,10 +7,10 @@ module counter8_tb;
   logic [7:0] count;
 
   counter8 dut (
-      .clk(clk),
-      .rst(rst),
-      .en(en),
-      .count(count)
+      .clk,
+      .rst,
+      .en,
+      .count
   );
 
   always #5 clk = ~clk;

@@ -18,51 +18,51 @@ module traffic_light_fsm (
   logic [1:0] state;
   logic [1:0] timer;
 
-  always @(posedge clk) begin
+  always_ff @(posedge clk) begin
     if (rst) begin
       state <= MAIN_GO;
-      timer <= 2'd0;
+      timer <= '0;
     end else begin
       case (state)
         MAIN_GO: begin
           if (timer == 2'd2) begin
             state <= MAIN_WAIT;
-            timer <= 2'd0;
+            timer <= '0;
           end else begin
-            timer <= timer + 2'd1;
+            timer <= timer + 1'b1;
           end
         end
         MAIN_WAIT: begin
           state <= SIDE_GO;
-          timer <= 2'd0;
+          timer <= '0;
         end
         SIDE_GO: begin
           if (timer == 2'd2) begin
             state <= SIDE_WAIT;
-            timer <= 2'd0;
+            timer <= '0;
           end else begin
-            timer <= timer + 2'd1;
+            timer <= timer + 1'b1;
           end
         end
         SIDE_WAIT: begin
           state <= MAIN_GO;
-          timer <= 2'd0;
+          timer <= '0;
         end
         default: begin
           state <= MAIN_GO;
-          timer <= 2'd0;
+          timer <= '0;
         end
       endcase
     end
   end
 
-  always @(*) begin
-    main_red = 1'b0;
-    main_yellow = 1'b0;
-    main_green = 1'b0;
-    side_red = 1'b0;
-    side_yellow = 1'b0;
-    side_green = 1'b0;
+  always_comb begin
+    main_red    = '0;
+    main_yellow = '0;
+    main_green  = '0;
+    side_red    = '0;
+    side_yellow = '0;
+    side_green  = '0;
 
     case (state)
       MAIN_GO: begin
@@ -71,14 +71,14 @@ module traffic_light_fsm (
       end
       MAIN_WAIT: begin
         main_yellow = 1'b1;
-        side_red = 1'b1;
+        side_red    = 1'b1;
       end
       SIDE_GO: begin
         main_red   = 1'b1;
         side_green = 1'b1;
       end
       SIDE_WAIT: begin
-        main_red = 1'b1;
+        main_red    = 1'b1;
         side_yellow = 1'b1;
       end
       default: begin

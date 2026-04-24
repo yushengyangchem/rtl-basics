@@ -6,11 +6,11 @@ module counter8 (
     input  logic       en,
     output logic [7:0] count
 );
-  always @(posedge clk) begin
+  always_ff @(posedge clk) begin
     if (rst) begin
-      count <= 8'd0;
+      count <= '0;
     end else if (en) begin
-      count <= count + 8'd1;
+      count <= count + 1'b1;
     end
   end
 endmodule
