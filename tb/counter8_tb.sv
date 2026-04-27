@@ -1,17 +1,16 @@
 `timescale 1ns / 1ps
 
 module counter8_tb;
-
-  logic       clk;
-  logic       rst;
-  logic       en;
+  logic clk;
+  logic rst;
+  logic en;
   logic [7:0] count;
 
   counter8 dut (
-      .clk  (clk),
-      .rst  (rst),
-      .en   (en),
-      .count(count)
+      .clk,
+      .rst,
+      .en,
+      .count
   );
 
   always #5 clk = ~clk;
@@ -27,7 +26,7 @@ module counter8_tb;
     @(posedge clk);
     #1;
     if (count !== 8'd0) begin
-      $display("FAIL: reset not clear count");
+      $display("FAIL counter8: reset should clear count");
       $finish;
     end
 
@@ -37,7 +36,7 @@ module counter8_tb;
     repeat (3) @(posedge clk);
     #1;
     if (count !== 8'd3) begin
-      $display("FAIL: count=%0d, expected 3", count);
+      $display("FAIL counter8: expected count=3, got %0d", count);
       $finish;
     end
 
@@ -45,7 +44,7 @@ module counter8_tb;
     @(posedge clk);
     #1;
     if (count !== 8'd3) begin
-      $display("FAIL: count should hold when en=0");
+      $display("FAIL counter8: count should hold when en=0");
       $finish;
     end
 
@@ -53,7 +52,7 @@ module counter8_tb;
     repeat (253) @(posedge clk);  // 3 + 253 = 256
     #1;
     if (count !== 8'd0) begin
-      $display("FAIL: overflow fail, count=%0d", count);
+      $display("FAIL counter8: overflow fail, count=%0d", count);
       $finish;
     end
 
@@ -61,7 +60,7 @@ module counter8_tb;
     rst = 1;
     #1;
     if (count !== 8'd0) begin
-      $display("FAIL: async reset fail");
+      $display("FAIL counter8: async reset fail");
       $finish;
     end
 
@@ -70,12 +69,11 @@ module counter8_tb;
     repeat (20) @(posedge clk);
     #1;
     if (count !== 8'd20) begin
-      $display("FAIL: continuous count fail");
+      $display("FAIL counter8: continuous count fail");
       $finish;
     end
 
-    $display("PASS counter8_tb: all tests passed");
+    $display("PASS counter8_tb");
     $finish;
   end
-
 endmodule
